@@ -20,19 +20,22 @@ function app(people){
       break;
       //WANTtODO:loop traits...
     case 'no':
-      se
+      
       default:
     app(people); // restart app
       break;
   }
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults, people);
+  mainMenu(searchResults, people, callback);{
+    callback();
+  }
 }
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
-
+  let person = knownPerson.firstName + knownPerson.lastName
+   
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
 
   if(!person){
@@ -45,6 +48,7 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
+    
     break;
     case "family":
     // TODO: get person's family
@@ -70,7 +74,7 @@ function mainMenu(person, people){
 //#region 
 
 //nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
-function searchByName(people){
+function searchByName(people){{
   let firstName = promptFor("What is the person's first name?", autoValid);
   let lastName = promptFor("What is the person's last name?", autoValid);
 
@@ -83,7 +87,10 @@ function searchByName(people){
     }
   })
   // TODO: find the person single person object using the name they entered.
-  return foundPerson;
+  let knownPerson = foundPerson.map()
+
+  }
+  return ;
 }
 
 //****Finished****unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
