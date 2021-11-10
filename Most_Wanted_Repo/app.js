@@ -134,12 +134,29 @@ function searchGender(people){
 function searchParents(person, people){
   let parent;
   parent = people.filter(function(potentialParent){
-    if(potentialParent.id === person[0].parents[0]){
+    if(potentialParent.id === person[0].parents[0] || potentialParent.id === person[0].parents[1]){
       return true;
     }
     else{
       return false;
     }
+  })
+  return parent
+}
+
+
+function searchSpouse(person, people){
+  let spouse;
+  spouse = people.filter(function(potentialSpouse){
+    if (potentialSpouse.id === person[0].currentSpouse){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return spouse
+}
   // spouse =   let foundPerson = people.filter(function(potentialMatch){
   //   if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
   //     return true;
@@ -147,18 +164,16 @@ function searchParents(person, people){
   //   else{
   //     return false;
   //   }
-  })
-  return parent
-}
 
 function returnFamily(person, people){
- let parents = searchParents(person, people);
-  // let parent = "";
+  let parents = searchParents(person, people);
   for (let i = 0; i < parents.length; i ++){
     alert("Parent is " + parents[i].firstName + " " + parents[i].lastName)
   }
-  
+  let spouse = searchSpouse(person, people);
+  alert("Spouse is " + spouse[0].firstName + " " + spouse[0].lastName)
 }
+  
 //#endregion
 
 //Display functions.
