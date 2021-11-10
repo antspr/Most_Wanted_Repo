@@ -101,10 +101,10 @@ function searchByName(people){
 
 //****Finished****unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
-  let eyecolor = promptFor("What is the person's eye color?", autoValid);
+  let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
   let foundEyeColor = people.filter(function(potentialMatch){
-    if(potentialMatch.eyeColor === eyecolor){
+    if(potentialMatch.eyeColor === eyeColor){
       return true;
     }
     else{
@@ -127,6 +127,58 @@ function searchGender(people){
     }
   })
   return foundGender;
+}
+function searchOccupation(people){
+  let occupation = promptFor("What is the person's occupation?", autoValid);
+
+  let foundOccupation = people.filter(function(potentialMatch){
+    if(potentialMatch.occupation === occupation){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundOccupation;
+}
+function searchDOB(people){
+  let dob = promptFor("What is the person's DOB?", autoValid);
+
+  let foundDOB = people.filter(function(potentialMatch){
+    if(potentialMatch.dob === dob){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundDOB;
+}
+function searchID(people){
+  let id = promptFor("What is the person's id?", autoValid);
+
+  let foundId = people.filter(function(potentialMatch){
+    if(potentialMatch.id === id){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundId;
+}
+function searchCurrentSpouse(people){
+  let CurrentSpouse = promptFor("What is the person's CurrentSpouse?", autoValid);
+
+  let foundCurrentSpouse = people.filter(function(potentialMatch){
+    if(potentialMatch.CurrentSpouse === CurrentSpouse){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundCurrentSpouse;
 }
 
 //Filter function for "family"
