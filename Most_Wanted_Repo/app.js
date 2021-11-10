@@ -152,7 +152,7 @@ function searchParents(person, people){
 }
 
 function returnFamily(person, people){
-  parents = searchParents(person, people);
+ let parents = searchParents(person, people);
   // let parent = "";
   for (let i = 0; i < parents.length; i ++){
     alert("Parent is " + parents[i].firstName + " " + parents[i].lastName)
