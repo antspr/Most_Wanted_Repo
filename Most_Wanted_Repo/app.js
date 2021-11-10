@@ -40,7 +40,7 @@ function mainMenu(person, people){
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let displayOption = promptFor("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid).toLowerCase();
 
   switch(displayOption){
     case "info":
@@ -86,13 +86,14 @@ function mainMenu(person, people){
 /////////////////////////////////////////////////////////////////
 //#region 
 
-//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
+//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE
+//  person object.
 function searchByName(people){
-  let firstName = promptFor("What is the person's first name?", autoValid);
-  let lastName = promptFor("What is the person's last name?", autoValid);
+  let firstName = promptFor("What is the person's first name?", autoValid).toLowerCase();
+  let lastName = promptFor("What is the person's last name?", autoValid).toLowerCase();
 
   let foundPerson = people.filter(function(potentialMatch){
-    if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
+    if(potentialMatch.firstName.toLowerCase() === firstName && potentialMatch.lastName.toLowerCase() === lastName){
       return true;
     }
     else{
@@ -108,7 +109,7 @@ function searchByEyeColor(people){
   let eyecolor = promptFor("What is the person's eye color?", autoValid);
 
   let foundEyeColor = people.filter(function(potentialMatch){
-    if(potentialMatch.eyeColor === eyecolor){
+    if(potentialMatch.eyeColor.toLowerCase() === eyecolor.toLowerCase()){
       return true;
     }
     else{
@@ -123,7 +124,7 @@ function searchGender(people){
   let gender = promptFor("What is the person's gender?", autoValid);
 
   let foundGender = people.filter(function(potentialMatch){
-    if(potentialMatch.gender === gender){
+    if(potentialMatch.gender.toLowerCase === gender.toLowerCase()){
       return true;
     }
     else{
