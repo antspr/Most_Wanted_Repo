@@ -157,6 +157,19 @@ function searchSpouse(person, people){
   })
   return spouse
 }
+
+function searchChildren(person,people) {
+  let children;
+  children = people.filter(function(potentialChild){
+    if (potentialChild.parents[0] === person[0].id || potentialChild.parents[1] === person[0].id  ){
+      return true
+    }
+    else{
+      return false
+    }
+  })
+  return children
+}
   // spouse =   let foundPerson = people.filter(function(potentialMatch){
   //   if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
   //     return true;
@@ -166,12 +179,19 @@ function searchSpouse(person, people){
   //   }
 
 function returnFamily(person, people){
+  //Finds parenst
   let parents = searchParents(person, people);
   for (let i = 0; i < parents.length; i ++){
     alert("Parent is " + parents[i].firstName + " " + parents[i].lastName)
   }
+  //Find spouse
   let spouse = searchSpouse(person, people);
   alert("Spouse is " + spouse[0].firstName + " " + spouse[0].lastName)
+  //Find children
+  let children = searchChildren(person, people);
+  for (let i = 0; i < children.length; i ++){
+    alert("Child is " + children[i].firstName + " " + children[i].lastName)
+  }
 }
   
 //#endregion
