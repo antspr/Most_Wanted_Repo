@@ -175,13 +175,7 @@ function searchChildren(person,people) {
   })
   return children
 }
-  // spouse =   let foundPerson = people.filter(function(potentialMatch){
-  //   if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
-  //     return true;
-  //   }
-  //   else{
-  //     return false;
-  //   }
+
 
 function returnFamily(person, people){
   //Finds parenst
