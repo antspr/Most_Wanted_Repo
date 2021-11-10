@@ -64,6 +64,10 @@ function mainMenu(person, people){
     break;
     case "descendants":
     // TODO: get person's descendants
+    let children = searchChildren(person, people);
+    for (let i = 0; i < children.length; i ++){
+      alert("A descendant is " + children[i].firstName + " " + children[i].lastName)
+    } 
     break;
     case "restart":
     app(people); // restart
