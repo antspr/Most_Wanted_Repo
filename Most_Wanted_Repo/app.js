@@ -40,7 +40,7 @@ function mainMenu(person, people){
     return app(people); // restart
   }
 
-  let displayOption = promptFor("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid);
+  let displayOption = promptFor("Found " + person[0].firstName + " " + person[0].lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'", autoValid).toLowerCase();
 
   switch(displayOption){
     case "info":
@@ -64,6 +64,10 @@ function mainMenu(person, people){
     break;
     case "descendants":
     // TODO: get person's descendants
+    let children = searchChildren(person, people);
+    for (let i = 0; i < children.length; i ++){
+      alert("A descendant is " + children[i].firstName + " " + children[i].lastName)
+    } 
     break;
     case "restart":
     app(people); // restart
@@ -82,13 +86,14 @@ function mainMenu(person, people){
 /////////////////////////////////////////////////////////////////
 //#region 
 
-//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
+//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE
+//  person object.
 function searchByName(people){
-  let firstName = promptFor("What is the person's first name?", autoValid);
-  let lastName = promptFor("What is the person's last name?", autoValid);
+  let firstName = promptFor("What is the person's first name?", autoValid).toLowerCase();
+  let lastName = promptFor("What is the person's last name?", autoValid).toLowerCase();
 
   let foundPerson = people.filter(function(potentialMatch){
-    if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
+    if(potentialMatch.firstName.toLowerCase() === firstName && potentialMatch.lastName.toLowerCase() === lastName){
       return true;
     }
     else{
@@ -104,7 +109,7 @@ function searchByEyeColor(people){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
   let foundEyeColor = people.filter(function(potentialMatch){
-    if(potentialMatch.eyeColor === eyeColor){
+    if(potentialMatch.eyeColor.toLowerCase() === eyecolor.toLowerCase()){
       return true;
     }
     else{
@@ -119,7 +124,7 @@ function searchGender(people){
   let gender = promptFor("What is the person's gender?", autoValid);
 
   let foundGender = people.filter(function(potentialMatch){
-    if(potentialMatch.gender === gender){
+    if(potentialMatch.gender.toLowerCase === gender.toLowerCase()){
       return true;
     }
     else{
@@ -186,12 +191,42 @@ function searchCurrentSpouse(people){
 function searchParents(person, people){
   let parent;
   parent = people.filter(function(potentialParent){
-    if(potentialParent.id === person[0].parents[0]){
+    if(potentialParent.id === person[0].parents[0] || potentialParent.id === person[0].parents[1]){
       return true;
     }
     else{
       return false;
     }
+  })
+  return parent
+}
+
+
+function searchSpouse(person, people){
+  let spouse;
+  spouse = people.filter(function(potentialSpouse){
+    if (potentialSpouse.id === person[0].currentSpouse){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return spouse
+}
+
+function searchChildren(person,people) {
+  let children;
+  children = people.filter(function(potentialChild){
+    if (potentialChild.parents[0] === person[0].id || potentialChild.parents[1] === person[0].id  ){
+      return true
+    }
+    else{
+      return false
+    }
+  })
+  return children
+}
   // spouse =   let foundPerson = people.filter(function(potentialMatch){
   //   if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
   //     return true;
@@ -199,18 +234,23 @@ function searchParents(person, people){
   //   else{
   //     return false;
   //   }
-  })
-  return parent
-}
 
 function returnFamily(person, people){
- let parents = searchParents(person, people);
-  // let parent = "";
+  //Finds parenst
+  let parents = searchParents(person, people);
   for (let i = 0; i < parents.length; i ++){
     alert("Parent is " + parents[i].firstName + " " + parents[i].lastName)
   }
-  
+  //Find spouse
+  let spouse = searchSpouse(person, people);
+  alert("Spouse is " + spouse[0].firstName + " " + spouse[0].lastName)
+  //Find children
+  let children = searchChildren(person, people);
+  for (let i = 0; i < children.length; i ++){
+    alert("Child is " + children[i].firstName + " " + children[i].lastName)
+  }
 }
+  
 //#endregion
 
 //Display functions.
