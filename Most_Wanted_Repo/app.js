@@ -45,17 +45,22 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     // TODO: get person's info
-    console.log("First name: " + person[0].firstName);
-    console.log("Last name: " + person[0].lastName);
-    console.log("Gender: " + person[0].gender);
-    console.log("DOB: " + person[0].dob);
-    console.log("Height: " + person[0].height);
-    console.log("Weight: " + person[0].weight);
-    console.log("Eye color: " + person[0].eyeColor);
-    console.log("Occupation: " + person[0].occupation);
+    alert("First name: " + person[0].firstName + "\r\n" + 
+      "Last name: " + person[0].lastName + "\r\n" +
+      "Gender: " + person[0].gender + "\r\n" +
+      "DOB: " + person[0].dob + "\r\n" +
+      "Height: " + person[0].height + "\r\n" +
+      "Weight: " + person[0].weight + "\r\n" +
+      "Eye color: " + person[0].eyeColor + "\r\n" +
+      "Occupation: " + person[0].occupation);
     break;
     case "family":
     // TODO: get person's family
+          /* For Parent: find variables in parent
+          for siblings: search all of people for same parent
+          for spouse: currentSpouse
+          for children: find all parent that match ID of person wanted*/
+    returnFamily(person, people)
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -124,7 +129,36 @@ function searchGender(people){
   return foundGender;
 }
 
+//Filter function for "family"
 
+function searchParents(person, people){
+  let parent;
+  parent = people.filter(function(potentialParent){
+    if(potentialParent.id === person[0].parents[0]){
+      return true;
+    }
+    else{
+      return false;
+    }
+  // spouse =   let foundPerson = people.filter(function(potentialMatch){
+  //   if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
+  //     return true;
+  //   }
+  //   else{
+  //     return false;
+  //   }
+  })
+  return parent
+}
+
+function returnFamily(person, people){
+  parents = searchParents(person, people);
+  // let parent = "";
+  for (let i = 0; i < parents.length; i ++){
+    alert("Parent is " + parents[i].firstName + " " + parents[i].lastName)
+  }
+  
+}
 //#endregion
 
 //Display functions.
