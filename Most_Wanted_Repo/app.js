@@ -16,17 +16,29 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits,, add functionality to select known trait of list
-      let eyeMatch = searchByEyeColor(people)
-      let peopleWithMatch = eyeMatch.map(function(eMatch){
-        return (" " + eMatch.firstName + " " + eMatch.lastName)
-      })
-      alert(peopleWithMatch)
+      let searchBy = prompt("Enter your search terms: '\r\n'1 for height '\r\n'2 for weight '\r\n'3 for gender '\r\n'4 for occupation '\r\n'5 for eye color. ");
+      switch(searchBy){
+        case '1':
+          let heightMatch = searchHeight(people)
+          let peopleWithMatch = heightMatch.map(function(eMatch){
+            return (" " + eMatch.firstName + " " + eMatch.lastName)
+          })
+          alert(peopleWithMatch)
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+      }
 
 
        break;
       //WANTtODO:loop traits...
     case 'no':
-      
+      let eyeMatch = searchByEyeColor(people)
+      let peopleWithMatch = eyeMatch.map(function(eMatch){
+        return (" " + eMatch.firstName + " " + eMatch.lastName)
+      })
+      alert(peopleWithMatch)
       default:
     app(people); // restart app
       break;
@@ -152,31 +164,31 @@ function searchOccupation(people){
   })
   return foundOccupation;
 }
-function searchDOB(people){
-  let dob = promptFor("What is the person's DOB?", autoValid);
+function searchHeight(people){
+  let height = promptFor("What is the person's height?", autoValid);
 
-  let foundDOB = people.filter(function(potentialMatch){
-    if(potentialMatch.dob === dob){
+  let foundHeight = people.filter(function(potentialMatch){
+    if(potentialMatch.height === height){
       return true;
     }
     else{
       return false;
     }
   })
-  return foundDOB;
+  return foundHeight;
 }
-function searchID(people){
-  let id = promptFor("What is the person's id?", autoValid);
+function searchWeight(people){
+  let weight = promptFor("What is the person's Weight?", autoValid);
 
-  let foundId = people.filter(function(potentialMatch){
-    if(potentialMatch.id === id){
+  let foundWeight = people.filter(function(potentialMatch){
+    if(potentialMatch.weight === weight){
       return true;
     }
     else{
       return false;
     }
   })
-  return foundId;
+  return foundWeight;
 }
 function searchCurrentSpouse(people){
   let CurrentSpouse = promptFor("What is the person's CurrentSpouse?", autoValid);
@@ -293,9 +305,11 @@ function promptFor(question, valid){
   do{
     var response = prompt(question).trim();
     isValid = valid(response);
-  } while(response === ""  ||  isValid === false)
+  } while(response == ""  ||  isValid == false)  
   return response;
 }
+
+
 
 // helper function/callback to pass into promptFor to validate yes/no answers.
 function yesNo(input){
@@ -330,4 +344,4 @@ function customValidation(input){
   
 }
 
-//#endregion
+//#end region
