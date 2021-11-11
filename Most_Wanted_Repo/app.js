@@ -23,22 +23,38 @@ function app(people){
           let peopleWithMatch = heightMatch.map(function(eMatch){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
-          alert(peopleWithMatch)
+        alert(peopleWithMatch)
         case '2':
+          let weightMatch = searchWeight(people)
+          let peopleWithMatch = weightMatch.map(function(eMatch){
+            return (" " + eMatch.firstName + " " + eMatch.lastName)
+          })
+        alert(peopleWithMatch)
         case '3':
+          let genderMatch = searchGender(people)
+          let peopleWithMatch = genderMatch.map(function(eMatch){
+            return (" " + eMatch.firstName + " " + eMatch.lastName)
+          })
+        alert(peopleWithMatch)
         case '4':
+          let occupationMatch = searchOccupation(people)
+          let peopleWithMatch = occupationMatch.map(function(eMatch){
+            return (" " + eMatch.firstName + " " + eMatch.lastName)
+          })
+        alert(peopleWithMatch)
         case '5':
+          let eyeMatch = searchByEyeColor(people)
+          let peopleWithMatch = eyeMatch.map(function(eMatch){
+            return (" " + eMatch.firstName + " " + eMatch.lastName)
+          })
+        alert(peopleWithMatch)
       }
 
 
        break;
       //WANTtODO:loop traits...
     case 'no':
-      let eyeMatch = searchByEyeColor(people)
-      let peopleWithMatch = eyeMatch.map(function(eMatch){
-        return (" " + eMatch.firstName + " " + eMatch.lastName)
-      })
-      alert(peopleWithMatch)
+
       default:
     app(people); // restart app
       break;
