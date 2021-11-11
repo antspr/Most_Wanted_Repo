@@ -41,11 +41,7 @@ function app(people){
         break;
         case '4':
           let occupationMatch = searchOccupation(people)
-<<<<<<< HEAD
-          var peopleWithMatch = occupationMatch.map(function(eMatch){
-=======
           peopleWithMatch = occupationMatch.map(function(eMatch){
->>>>>>> 79051201c5e220c68282d2036a4a848a658aeb2a
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
@@ -176,7 +172,7 @@ function searchGender(people){
   return foundGender;
 }
 function searchOccupation(people){
-  let occupation = promptFor("What is the person's occupation?");
+  let occupation = promptFor("What is the person's occupation?", autoValid);
 
   let foundOccupation = people.filter(function(potentialMatch){
     if(potentialMatch.occupation === occupation){
@@ -189,7 +185,7 @@ function searchOccupation(people){
   return foundOccupation;
 }
 function searchHeight(people){
-  let height = promptFor("What is the person's height?");
+  let height = promptFor("What is the person's height?", autoValid);
 
   let foundHeight = people.filter(function(potentialMatch){
     if(potentialMatch.height == height){
@@ -202,7 +198,7 @@ function searchHeight(people){
   return foundHeight;
 }
 function searchWeight(people){
-  let weight = promptFor("What is the person's Weight?");
+  let weight = promptFor("What is the person's Weight?", autoValid);
 
   let foundWeight = people.filter(function(potentialMatch){
     if(potentialMatch.weight == weight){
@@ -215,7 +211,7 @@ function searchWeight(people){
   return foundWeight;
 }
 function searchCurrentSpouse(people){
-  let CurrentSpouse = promptFor("What is the person's CurrentSpouse?");
+  let CurrentSpouse = promptFor("What is the person's CurrentSpouse?", autoValid);
 
   let foundCurrentSpouse = people.filter(function(potentialMatch){
     if(potentialMatch.CurrentSpouse === CurrentSpouse){
@@ -269,6 +265,18 @@ function searchChildren(person,people) {
   })
   return children
 }
+
+// Search multiple traits
+// function searchMultipleTraits(people, searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor) {
+//   let heightList = searchHeight(people);
+//   let weightList = searchWeight(people);
+//   let genderList = searchGender(people);
+//   let occupationList = searchOccupation(people);
+//   let eyeColorList = searchByEyeColor(people);
+//   let concatTraitList = heightList.concat(weightList.concat(genderList.concat(occupationList.concat(eyeColorList))))
+
+
+// }
 
 
 function returnFamily(person, people){
