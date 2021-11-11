@@ -250,13 +250,8 @@ function returnFamily(person, people){
     alert("Child is " + children[i].firstName + " " + children[i].lastName)
   }
 }
-<<<<<<< HEAD
-
-//#endregion
-=======
   
 //#end region
->>>>>>> ab71a8331d8d43ed18f35555a3fd499c4fc23748
 
 //Display functions.
 //Functions for user interface.
@@ -305,6 +300,17 @@ function promptFor(question, valid){
 // helper function/callback to pass into promptFor to validate yes/no answers.
 function yesNo(input){
   if(input.toLowerCase() == "yes" || input.toLowerCase() == "no"){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+// Validate numerical selection
+function numerical(input){
+  let numericalList = [1,2,3,4,5,6]
+  if(input in numericalList){
     return true;
   }
   else{
