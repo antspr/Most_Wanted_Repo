@@ -20,31 +20,31 @@ function app(people){
       switch(searchBy){
         case '1':
           let heightMatch = searchHeight(people)
-          let peopleWithMatch = heightMatch.map(function(eMatch){
+          var peopleWithMatch = heightMatch.map(function(eMatch){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
         case '2':
           let weightMatch = searchWeight(people)
-          let peopleWithMatch = weightMatch.map(function(eMatch){
+          var peopleWithMatch = weightMatch.map(function(eMatch){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
         case '3':
           let genderMatch = searchGender(people)
-          let peopleWithMatch = genderMatch.map(function(eMatch){
+          var peopleWithMatch = genderMatch.map(function(eMatch){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
         case '4':
           let occupationMatch = searchOccupation(people)
-          let peopleWithMatch = occupationMatch.map(function(eMatch){
+          var peopleWithMatch = occupationMatch.map(function(eMatch){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
         case '5':
           let eyeMatch = searchByEyeColor(people)
-          let peopleWithMatch = eyeMatch.map(function(eMatch){
+          var peopleWithMatch = eyeMatch.map(function(eMatch){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
@@ -158,7 +158,7 @@ function searchGender(people){
   let gender = promptFor("What is the person's gender?", autoValid);
 
   let foundGender = people.filter(function(potentialMatch){
-    if(potentialMatch.gender.toLowerCase === gender.toLowerCase()){
+    if(potentialMatch.gender.toLowerCase() === gender.toLowerCase()){
       return true;
     }
     else{
