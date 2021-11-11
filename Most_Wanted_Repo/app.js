@@ -244,7 +244,7 @@ function returnFamily(person, people){
     alert("Child is " + children[i].firstName + " " + children[i].lastName)
   }
 }
-  
+
 //#endregion
 
 //Display functions.
@@ -280,7 +280,8 @@ function displayPerson(person){
 //a function that takes in a question to prompt, and a callback function to validate the user input.
 //response: Will capture the user input.
 //isValid: Will capture the return of the validation function callback. true(the user input is valid)/false(the user input was not valid).
-//this function will continue to loop until the user enters something that is not an empty string("") or is considered valid based off the callback function(valid).
+//this function will continue to loop until the user enters something that is not an empty string("") or is considered valid based off 
+// the callback function(valid).
 function promptFor(question, valid){
   let isValid;
   do{
