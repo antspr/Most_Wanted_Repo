@@ -58,21 +58,27 @@ function app(people){
        break;
       //WANTtODO:loop traits...
     case 'no':
+      
 
       default:
     app(people); // restart app
       break;
   }
   
+  if( searchResults.length > 1 ){
+    return app(searchBy);
+    }
+  
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
-  mainMenu(searchResults, people)  
+  mainMenu(searchResults, people)
+  
 }
 
 // Menu function to call once you find who you are looking for
 function mainMenu(person, people){
-if (searchResults.length > 1){
-  person = searchBy(searchResults);
-}
+
+
+
 
    
   /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */

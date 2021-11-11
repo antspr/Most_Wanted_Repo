@@ -28,8 +28,3 @@ Bonus
 As a user, after locating a person, I want to see only that person’s descendants (display the names of the 
 descendants), using recursion
 
-
-
-To-Do Checklist 
-
-switch logic on traits to have user input be a choice from a list of traits to search by.
