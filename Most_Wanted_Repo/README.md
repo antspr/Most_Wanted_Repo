@@ -8,10 +8,10 @@ should just use prompt() and alert() for the User Interface (UI). Although this 
 you may use only two files for this project, an HTML file and a JS file for the application.
 Technologies: JavaScript
 User Stories:
-(5 points): As a developer, I want to make at least 15 consistent commits with good, descriptive 
+COMPLETE(5 points): As a developer, I want to make at least 15 consistent commits with good, descriptive 
 messages.
-(5 points): As a developer, I want to run validation on any user input, ensuring that a user is reprompted when they provide invalid input.
-(10 points): As a user, I want to be able to search for someone based on a single criterion
+{   TO DO   }(5 points): As a developer, I want to run validation on any user input, ensuring that a user is reprompted when they provide invalid input.
+**(10 points): As a user, I want to be able to search for someone based on a single criterion
 - You should be able to find and return a list of people who match the search
 (15 points): As a user, I want to be able to search for someone based on multiple traits (up to a 
 maximum of five criteria at once).
@@ -19,7 +19,7 @@ maximum of five criteria at once).
 match the search. In this case, it will be only people who are male with blue eyes.
 (10 points): As a user, I want to be able to look up someone’s information after I find them with the 
 program (display values for the various traits of the found person).
-(15 points): As a user, after locating a person, I want to see only that person’s descendants (display the 
+*(15 points): As a user, after locating a person, I want to see only that person’s descendants (display the 
 names of the descendants).
 (15 points): As a user, after locating a person, I want to see only that person’s immediate family 
 members, displaying the names of the family members and their relation to the found person. 
@@ -27,3 +27,9 @@ members, displaying the names of the family members and their relation to the fo
 Bonus
 As a user, after locating a person, I want to see only that person’s descendants (display the names of the 
 descendants), using recursion
+
+
+
+To-Do Checklist 
+
+switch logic on traits to have user input be a choice from a list of traits to search by.
