@@ -16,7 +16,7 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits,, add functionality to select known trait of list
-      let searchBy = promptFor("Enter your search terms: '\r\n'1 for height '\r\n'2 for weight '\r\n'3 for gender '\r\n'4 for occupation '\r\n'5 for eye color. ", numerical);
+      let searchBy = promptFor("Enter your search terms: '\r\n'1 for height '\r\n'2 for weight '\r\n'3 for gender '\r\n'4 for occupation '\r\n'5 for eye color  '\r\n'6 for multiple traits.  ", numerical);
       switch(searchBy){
         case '1':
           let heightMatch = searchHeight(people)
@@ -52,9 +52,14 @@ function app(people){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
+        break;
+        case '6':
+          let multiMatch = searchMultipleTraits(people, searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor)
+          var peopleWithMatch = multiMatch.map(function(eMatch){
+            return (" " + eMatch.firstName + " " + eMatch.lastName)
+          })
+        alert(peopleWithMatch)
       }
-
-
        break;
       //WANTtODO:loop traits...
     case 'no':
@@ -267,16 +272,57 @@ function searchChildren(person,people) {
 }
 
 // Search multiple traits
-// function searchMultipleTraits(people, searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor) {
-//   let heightList = searchHeight(people);
-//   let weightList = searchWeight(people);
-//   let genderList = searchGender(people);
-//   let occupationList = searchOccupation(people);
-//   let eyeColorList = searchByEyeColor(people);
-//   let concatTraitList = heightList.concat(weightList.concat(genderList.concat(occupationList.concat(eyeColorList))))
-
-
-// }
+function searchMultipleTraits(people, searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor) {
+  let peopleToRemoveList = [];
+  let heightList = searchHeight(people);
+  peopleToRemoveList = heightList.filter(function(el){
+    if( el in people){
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  let weightList = searchWeight(people);
+  peopleToRemoveList = weightList.filter(function(el){
+    if( el in people){
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  let genderList = searchGender(people);
+  peopleToRemoveList = genderList.filter(function(el){
+    if( el in people){
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  let occupationList = searchOccupation(people);
+  peopleToRemoveList = occupationList.filter(function(el){
+    if( el in people){
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  let eyeColorList = searchByEyeColor(people);
+  peopleToRemoveList = eyeColorList.filter(function(el){
+    if( el in people){
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+  return peopleToRemoveList;
+  
+  
+}
 
 
 function returnFamily(person, people){
@@ -355,7 +401,7 @@ function yesNo(input){
 
 // Validate numerical selection
 function numerical(input){
-  let numericalList = [1,2,3,4,5,6]
+  let numericalList = [1,2,3,4,5,6,7]
   if(input in numericalList){
     return true;
   }
