@@ -265,63 +265,6 @@ function searchChildren(person,people) {
 
 // Search multiple traits
 
-// function searchMultipleTraits(people), searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor) {
-//   let allAttributes = [];
-//   for (let i = 0; people.firstName; i++){
-//     let allFirstNames = searchByName
-//   }
-
-//   ToRemoveList = [];
-//   let heightList = searchHeight(people);
-//   peopleToRemoveList = heightList.filter(function(el){
-//     if( el in people){
-//       return true;
-//     }
-//     else{
-//       return false;
-//     }
-//   });
-//   let weightList = searchWeight(people);
-//   peopleToRemoveList = weightList.filter(function(el){
-//     if( el in people){
-//       return true;
-//     }
-//     else{
-//       return false;
-//     }
-//   });
-//   let genderList = searchGender(people);
-//   peopleToRemoveList = genderList.filter(function(el){
-//     if( el in people){
-//       return true;
-//     }
-//     else{
-//       return false;
-//     }
-//   });
-//   let occupationList = searchOccupation(people);
-//   peopleToRemoveList = occupationList.filter(function(el){
-//     if( el in people){
-//       return true;
-//     }
-//     else{
-//       return false;
-//     }
-//   });
-//   let eyeColorList = searchByEyeColor(people);
-//   peopleToRemoveList = eyeColorList.filter(function(el){
-//     if( el in people){
-//       return true;
-//     }
-//     else{
-//       return false;
-//     }
-//   });
-//   return peopleToRemoveList;
-  
-  
-// }
-
 
 function searchMultipleTraits(people, searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor) {
   let searchResults = people;
@@ -397,7 +340,6 @@ function displayPeople(people){
     return person.firstName + " " + person.lastName;
   }).join("\n"));
 }
-
 function displayPerson(person){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
