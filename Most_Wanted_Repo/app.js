@@ -20,45 +20,27 @@ function app(people){
       switch(searchBy){
         case '1':
           let heightMatch = searchHeight(people)
-          var peopleWithMatch = heightMatch.map(function(eMatch){
-            return (" " + eMatch.firstName + " " + eMatch.lastName)
-          })
-        alert(peopleWithMatch)
+          displayPeople(heightMatch)
         break;
         case '2':
           let weightMatch = searchWeight(people)
-          var peopleWithMatch = weightMatch.map(function(eMatch){
-            return (" " + eMatch.firstName + " " + eMatch.lastName)
-          })
-        alert(peopleWithMatch)
+          displayPeople(weightMatch)
         break;
         case '3':
           let genderMatch = searchGender(people)
-          var peopleWithMatch = genderMatch.map(function(eMatch){
-            return (" " + eMatch.firstName + " " + eMatch.lastName)
-          })
-        alert(peopleWithMatch)
+        displayPeople(genderMatch)
         break;
         case '4':
           let occupationMatch = searchOccupation(people)
-          peopleWithMatch = occupationMatch.map(function(eMatch){
-            return (" " + eMatch.firstName + " " + eMatch.lastName)
-          })
-        alert(peopleWithMatch)
+          displayPeople(occupationMatch)
         break;
         case '5':
           let eyeMatch = searchByEyeColor(people)
-          var peopleWithMatch = eyeMatch.map(function(eMatch){
-            return (" " + eMatch.firstName + " " + eMatch.lastName)
-          })
-        alert(peopleWithMatch)
+          displayPeople(eyeMatch)
         break;
         case '6':
           let multiMatch = searchMultipleTraits(people, searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor)
-          var peopleWithMatch = multiMatch.map(function(eMatch){
-            return (" " + eMatch.firstName + " " + eMatch.lastName)
-          })
-        alert(peopleWithMatch)
+          displayPeople(multiMatch)
       }
        break;
       //WANTtODO:loop traits...
@@ -283,66 +265,13 @@ function searchChildren(person,people) {
 
 // Search multiple traits
 
-function searchMultipleTraits(people), searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor) {
-  let allAttributes = [];
-  for (let i = 0; people.firstName; i++){
-    let allFirstNames = searchByName
-  }
+// function searchMultipleTraits(people), searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor) {
+//   let allAttributes = [];
+//   for (let i = 0; people.firstName; i++){
+//     let allFirstNames = searchByName
+//   }
 
-  ToRemoveList = [];
-  let heightList = searchHeight(people);
-  peopleToRemoveList = heightList.filter(function(el){
-    if( el in people){
-      return true;
-    }
-    else{
-      return false;
-    }
-  });
-  let weightList = searchWeight(people);
-  peopleToRemoveList = weightList.filter(function(el){
-    if( el in people){
-      return true;
-    }
-    else{
-      return false;
-    }
-  });
-  let genderList = searchGender(people);
-  peopleToRemoveList = genderList.filter(function(el){
-    if( el in people){
-      return true;
-    }
-    else{
-      return false;
-    }
-  });
-  let occupationList = searchOccupation(people);
-  peopleToRemoveList = occupationList.filter(function(el){
-    if( el in people){
-      return true;
-    }
-    else{
-      return false;
-    }
-  });
-  let eyeColorList = searchByEyeColor(people);
-  peopleToRemoveList = eyeColorList.filter(function(el){
-    if( el in people){
-      return true;
-    }
-    else{
-      return false;
-    }
-  });
-  return peopleToRemoveList;
-  
-  
-}
-
-
-// function searchMultipleTraits(people, searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor) {
-//   let peopleToRemoveList = [];
+//   ToRemoveList = [];
 //   let heightList = searchHeight(people);
 //   peopleToRemoveList = heightList.filter(function(el){
 //     if( el in people){
@@ -394,8 +323,53 @@ function searchMultipleTraits(people), searchHeight, searchWeight, searchGender,
 // }
 
 
+function searchMultipleTraits(people, searchHeight, searchWeight, searchGender, searchOccupation, searchByEyeColor) {
+  let searchResults = people;
+  let input = promptFor("Do you know their gender?", yesNo)
+  if(input == "yes"){
+     searchResults = searchGender(searchResults);
+  };
+  input = promptFor("Do you know their height?", yesNo)
+  if(input == "yes"){
+     searchResults = searchHeight(searchResults);
+  };
+  input = promptFor("Do you know their weight?", yesNo)
+  if(input == "yes"){
+     searchResults = searchWeight(searchResults);
+  };
+  input = promptFor("Do you know their occupation?", yesNo)
+  if(input == "yes"){
+     searchResults = searchOccupation(searchResults);
+  };
+  input = promptFor("Do you know their eye color?", yesNo)
+  if(input == "yes"){
+     searchResults = searchByEyeColor(searchResults);
+  };
+  
+  return searchResults;  
+  
+}
+
+
+// function returnFamily(person, people){
+//   //Finds parents
+//   let parents = searchParents(person, people);
+//   for (let i = 0; i < parents.length; i ++){
+//     alert("Parent is " + parents[i].firstName + " " + parents[i].lastName)
+//   }
+//   //Find spouse
+//   let spouse = searchSpouse(person, people);
+//   alert("Spouse is " + spouse[0].firstName + " " + spouse[0].lastName)
+//   //Find children
+//   let children = searchChildren(person, people);
+//   for (let i = 0; i < children.length; i ++){
+//     alert("Child is " + children[i].firstName + " " + children[i].lastName)
+//   }
+// }
+
 function returnFamily(person, people){
   //Finds parents
+  let parentList 
   let parents = searchParents(person, people);
   for (let i = 0; i < parents.length; i ++){
     alert("Parent is " + parents[i].firstName + " " + parents[i].lastName)
