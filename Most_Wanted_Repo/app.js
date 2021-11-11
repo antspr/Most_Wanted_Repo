@@ -24,24 +24,32 @@ function app(people){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
+        break;
         case '2':
           let weightMatch = searchWeight(people)
           var peopleWithMatch = weightMatch.map(function(eMatch){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
+        break;
         case '3':
           let genderMatch = searchGender(people)
           var peopleWithMatch = genderMatch.map(function(eMatch){
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
+        break;
         case '4':
           let occupationMatch = searchOccupation(people)
+<<<<<<< HEAD
           var peopleWithMatch = occupationMatch.map(function(eMatch){
+=======
+          peopleWithMatch = occupationMatch.map(function(eMatch){
+>>>>>>> 79051201c5e220c68282d2036a4a848a658aeb2a
             return (" " + eMatch.firstName + " " + eMatch.lastName)
           })
         alert(peopleWithMatch)
+        break;
         case '5':
           let eyeMatch = searchByEyeColor(people)
           var peopleWithMatch = eyeMatch.map(function(eMatch){
@@ -168,7 +176,7 @@ function searchGender(people){
   return foundGender;
 }
 function searchOccupation(people){
-  let occupation = promptFor("What is the person's occupation?", autoValid);
+  let occupation = promptFor("What is the person's occupation?");
 
   let foundOccupation = people.filter(function(potentialMatch){
     if(potentialMatch.occupation === occupation){
@@ -181,7 +189,7 @@ function searchOccupation(people){
   return foundOccupation;
 }
 function searchHeight(people){
-  let height = promptFor("What is the person's height?", autoValid);
+  let height = promptFor("What is the person's height?");
 
   let foundHeight = people.filter(function(potentialMatch){
     if(potentialMatch.height == height){
@@ -194,10 +202,10 @@ function searchHeight(people){
   return foundHeight;
 }
 function searchWeight(people){
-  let weight = promptFor("What is the person's Weight?", autoValid);
+  let weight = promptFor("What is the person's Weight?");
 
   let foundWeight = people.filter(function(potentialMatch){
-    if(potentialMatch.weight === weight){
+    if(potentialMatch.weight == weight){
       return true;
     }
     else{
@@ -207,7 +215,7 @@ function searchWeight(people){
   return foundWeight;
 }
 function searchCurrentSpouse(people){
-  let CurrentSpouse = promptFor("What is the person's CurrentSpouse?", autoValid);
+  let CurrentSpouse = promptFor("What is the person's CurrentSpouse?");
 
   let foundCurrentSpouse = people.filter(function(potentialMatch){
     if(potentialMatch.CurrentSpouse === CurrentSpouse){
