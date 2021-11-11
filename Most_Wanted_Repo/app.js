@@ -16,8 +16,14 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits,, add functionality to select known trait of list
-      searchResults = searchByEyeColor(people);
-      break;
+      let eyeMatch = searchByEyeColor(people)
+      let peopleWithMatch = eyeMatch.map(function(eMatch){
+        return (" " + eMatch.firstName + " " + eMatch.lastName)
+      })
+      alert(peopleWithMatch)
+
+
+       break;
       //WANTtODO:loop traits...
     case 'no':
       
@@ -109,7 +115,7 @@ function searchByEyeColor(people){
   let eyeColor = promptFor("What is the person's eye color?", autoValid);
 
   let foundEyeColor = people.filter(function(potentialMatch){
-    if(potentialMatch.eyeColor.toLowerCase() === eyecolor.toLowerCase()){
+    if(potentialMatch.eyeColor.toLowerCase() === eyeColor.toLowerCase()){
       return true;
     }
     else{
@@ -230,7 +236,7 @@ function searchChildren(person,people) {
 
 
 function returnFamily(person, people){
-  //Finds parenst
+  //Finds parents
   let parents = searchParents(person, people);
   for (let i = 0; i < parents.length; i ++){
     alert("Parent is " + parents[i].firstName + " " + parents[i].lastName)
@@ -244,8 +250,13 @@ function returnFamily(person, people){
     alert("Child is " + children[i].firstName + " " + children[i].lastName)
   }
 }
+<<<<<<< HEAD
 
 //#endregion
+=======
+  
+//#end region
+>>>>>>> ab71a8331d8d43ed18f35555a3fd499c4fc23748
 
 //Display functions.
 //Functions for user interface.
