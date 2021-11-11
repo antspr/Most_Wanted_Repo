@@ -16,7 +16,7 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits,, add functionality to select known trait of list
-      let searchBy = prompt("Enter your search terms: '\r\n'1 for height '\r\n'2 for weight '\r\n'3 for gender '\r\n'4 for occupation '\r\n'5 for eye color. ");
+      let searchBy = promptFor("Enter your search terms: '\r\n'1 for height '\r\n'2 for weight '\r\n'3 for gender '\r\n'4 for occupation '\r\n'5 for eye color. ", numerical);
       switch(searchBy){
         case '1':
           let heightMatch = searchHeight(people)
@@ -168,7 +168,7 @@ function searchHeight(people){
   let height = promptFor("What is the person's height?", autoValid);
 
   let foundHeight = people.filter(function(potentialMatch){
-    if(potentialMatch.height === height){
+    if(potentialMatch.height == height){
       return true;
     }
     else{
